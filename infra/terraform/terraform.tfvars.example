@@ -1,0 +1,2 @@
+account_id   = "your_account_id"
+alert_emails = ["your_email@example.com"]

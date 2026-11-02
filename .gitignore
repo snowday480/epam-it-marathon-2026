@@ -1,0 +1,42 @@
+# IDE / editor
+.idea/
+.vscode/
+*.iml
+*.code-workspace
+
+# OS
+.DS_Store
+._*
+Thumbs.db
+
+# Node
+node_modules/
+dist/
+
+# Local env
+.env
+.env.local
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+backend.hcl
+**/backend.hcl
+crash.log
+crash.*.log
+
+# Syndicate local configuration & artifacts
+**/.syndicate/
+**/.syndicate-config-*/
+syndicate_venv/
+**/syndicate_venv/
+
+# .NET build artifacts
+**/bin/
+**/obj/
+
+# Syndicate source clone
+aws-syndicate/
