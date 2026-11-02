@@ -11,7 +11,14 @@ Thumbs.db
 
 # Node
 node_modules/
+**/node_modules/
 dist/
+**/dist/
+.angular/
+**/.angular/
+
+# Archives
+*.zip
 
 # Local env
 .env
