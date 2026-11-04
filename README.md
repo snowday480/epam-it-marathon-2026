@@ -1,3 +1,11 @@
+# Restaurant Automation & Cloud Infrastructure
+
+> 🎯 **Homework #8 (Test Automation: E2E Scenarios):**  
+> Complete E2E Automation Suite with Playwright, Onion Architecture (POM/COM), Dynamic Dates, Parallel Execution, and GitHub Actions CI Pipeline is available in [`e2e/`](file:///d:/marathon2026/e2e).  
+> 👉 **[Go to E2E Automation README & Guide](file:///d:/marathon2026/e2e/README.md)**
+
+---
+
 # Deployment Guide
 
 This repo uses three deployment tracks:
