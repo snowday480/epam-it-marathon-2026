@@ -1,0 +1,16 @@
+{
+  "apiKey": "${RP_API_KEY}",
+  "endpoint": "https://reportportal.epam.com/api/v1",
+  "project": "restaurant_aqa_marathon",
+  "launch": "E2E Group Pre-Order Regression",
+  "description": "Homework #8 End-to-End Test Automation Suite (Levels 1, 2, 3 and Bonus)",
+  "attributes": [
+    { "key": "homework", "value": "8" },
+    { "key": "framework", "value": "playwright" },
+    { "key": "direction", "value": "direction-1-ui-api" },
+    { "key": "architecture", "value": "onion-pom-com" }
+  ],
+  "mode": "DEFAULT",
+  "debug": false,
+  "isLaunchMergeRequired": false
+}

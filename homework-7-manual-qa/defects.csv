@@ -1,0 +1,164 @@
+ID: 1,Summary: Brand logo in Header does not match official design (sprout position and typography distorted),,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: High
+
+Severity: Major"
+,"Pre-conditions:
+1. Guest is on the Menu page: https://d28jftogiwtein.cloudfront.net/join/...
+2. Official brand asset Logo.png and Figma design (Owner Flow.png) define the logo specifications.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Inspect the brand logo in the top-left corner of the header.
+3. Compare it with Logo.png and Figma design.
+
+Actual result:
+The logo displays a sprout icon placed awkwardly on the far left above the letter 'G' ('Green Tasty'), with plain font for letter 'T'.
+
+Expected result:
+The logo must strictly match the brand asset Logo.png: the stem of the sprout forms the vertical trunk of letter 'T' with two leaves sprouting between 'n' and 'T', and the subtitle 'HEALTHY EATERS RESTAURANT' is aligned below.",,
+"Attachments: screenshot.png (Header logo), Logo.png (Official brand asset)",,,
+,,,
+ID: 2,"Summary: Dish images do not match dish names on Menu page (Pizza, Risotto, and Toast display salad photos)",,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: High
+
+Severity: Major"
+,"Pre-conditions:
+1. Guest is on the Menu page: https://d28jftogiwtein.cloudfront.net/join/...
+2. Menu contains dishes: Fresh Avocado Toast, Truffle Mushroom Risotto, Margherita Pizza.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Observe the dish cards for 'Fresh Avocado Toast', 'Truffle Mushroom Risotto', and 'Margherita Pizza'.
+3. Compare the image displayed on each card with the dish title.
+
+Actual result:
+- 'Margherita Pizza' displays a photo of a green vegetable salad.
+- 'Truffle Mushroom Risotto' displays a photo of a strawberry salad.
+- 'Fresh Avocado Toast' displays a photo of a salad bowl.
+Dish images are completely mismatched with their names.
+
+Expected result:
+Each dish card must display the authentic image corresponding to its recipe and title (e.g., Margherita Pizza displays pizza image, Risotto displays risotto image), matching Figma design cards.",,
+"Attachments: screenshot.png (Dish cards grid), Owner Flow.png (Figma design cards)",,,
+,,,
+ID: 3,Summary: Inconsistency in unavailable dish badge: UI displays 'Out Of Stock' while Figma specifies 'Sold Out' and AC 4 specifies 'On Stop',,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Medium"
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dishes 'Fresh Avocado Toast' and 'Truffle Mushroom Risotto' are marked as unavailable in the system.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Inspect the availability badge on unavailable dish cards.
+3. Compare the badge text with Figma design and US11 AC 4.
+
+Actual result:
+The badge displays the text 'Out Of Stock'.
+
+Expected result:
+Terminology must be reconciled across specifications, design, and UI. In Figma design (Owner Flow.png), unavailable items are labelled 'Sold Out'; in AC 4, they are referred to as 'On Stop'. The implementation should match the agreed design system standard (preferably 'Sold Out' for customer-facing UI or 'On Stop' if required by AC 4).",,
+"Attachments: screenshot.png (Badges on cards 1 and 2), Owner Flow.png (Sold Out badge on Green Asparagus Salad)",,,
+,,,
+ID: 4,Summary: 'Desserts' category tab and 'Sort by' dropdown are missing from the category navigation bar,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Major"
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Restaurant menu includes dishes in Appetizers, Main Courses, and Desserts.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Inspect the category navigation bar and controls above the dish cards.
+3. Compare with AC 1 and Figma design.
+
+Actual result:
+- Only 'All dishes', 'Appetizers', and 'Main Courses' tabs are displayed. 'Desserts' category is missing.
+- 'Sort by: Popular First' dropdown present in Figma is completely missing from the UI.
+
+Expected result:
+- Category bar displays all available categories according to AC 1 and Figma (including 'Desserts').
+- Sorting controls ('Sort by' dropdown) from Figma are implemented.",,
+"Attachments: screenshot.png (Category bar), Owner Flow.png (Figma category bar with Appetizers, Main Cources, Desserts and Sort by dropdown)",,,
+,,,
+ID: 5,Summary: Inconsistent spacing in dish serving weight format ('200g' vs '450 g'),,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Low
+
+Severity: Minor"
+,"Pre-conditions:
+1. Guest is on the Menu page.",,
+,"Steps:
+1. Examine serving size text on 'Fresh Avocado Toast' and 'Truffle Mushroom Risotto'.
+2. Examine serving size text on 'Margherita Pizza'.
+
+Actual result:
+Inconsistent formatting:
+- 'Fresh Avocado Toast' shows '200g' (no space).
+- 'Truffle Mushroom Risotto' shows '350g' (no space).
+- 'Margherita Pizza' shows '450 g' (with space between number and unit).
+
+Expected result:
+Serving size formatting must be uniform across all dish cards, following Figma design standard (e.g. '200 g', '350 g', '450 g').",,
+"Attachments: screenshot.png (Weight labels), Owner Flow.png (Standard 430 g, 270 g formatting)",,,
+,,,
+ID: 6,"Summary: Unauthorized Guest view displays customer account navigation items ('Book a Table', 'Reservations', profile avatar) in header",,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Major"
+,"Pre-conditions:
+1. User opens the guest pre-order join link without being logged into a Customer account.",,
+,"Steps:
+1. Open the guest invite link in an incognito browser window.
+2. Observe the top header navigation bar.
+
+Actual result:
+Header contains links: 'Book a Table', 'Reservations', and an active profile avatar icon, which belong to an authorized Customer flow.
+
+Expected result:
+For a Guest participating in a pre-order session, the header should display guest-relevant navigation or simplify to restaurant branding without exposing unrelated customer account actions.",,
+"Attachments: screenshot.png (Top header bar), Owner Flow.png (Owner header vs Guest session requirements)",,,
+,,,
+ID: 7,Summary: Cart button placement contradicts Figma design and lacks selected items counter badge,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Low
+
+Severity: Minor"
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dishes are added to personal subcart.",,
+,"Steps:
+1. Observe the green reservation bar and the header on the Menu page.
+2. Check the cart icon and counter badge.
+3. Compare with Figma screen 'Menu Page. 2 items in the cart. Header'.
+
+Actual result:
+- Cart icon is located inside the green reservation strip instead of header navigation.
+- Cart icon is static with no counter badge (shows 0 or nothing when dishes are added).
+
+Expected result:
+- Cart button placement conforms to design (in Figma, it is in the header next to avatar).
+- Cart icon displays an item count badge indicating quantity of dishes in personal subcart (e.g. circular badge '2').",,
+"Attachments: screenshot.png (Green reservation strip cart icon), Owner Flow.png (Menu Page. 2 items in the cart. Header)",,,
+,,,
+ID: 8,Summary: Available dish cards lack explicit availability indicator required by AC 2,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Low
+
+Severity: Minor"
+,"Pre-conditions:
+1. Guest is on the Menu page with available dishes (e.g. Margherita Pizza).",,
+,"Steps:
+1. Inspect the card for available dish 'Margherita Pizza'.
+2. Check for availability status indicator as required by AC 2.
+
+Actual result:
+There is no visual indicator or label of availability status on available dish cards (only an active Pre-Order button is shown).
+
+Expected result:
+According to AC 2 ('Each menu item must clearly display ... current availability status'), available dishes should have a clear availability status indicator, or AC 2 must be updated to clarify that active button implies availability.",,
+Attachments: screenshot.png (Margherita Pizza card),,,
+,,,

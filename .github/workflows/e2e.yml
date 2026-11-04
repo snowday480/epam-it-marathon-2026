@@ -1,0 +1,74 @@
+name: E2E Automation Pipeline (Homework #8)
+
+on:
+  push:
+    branches: [ main, homework-8, 'feat/**' ]
+  pull_request:
+    branches: [ main, homework-8 ]
+  workflow_dispatch:
+
+jobs:
+  test-e2e:
+    name: Run E2E Playwright Suite (Levels 1-3 & Bonus)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+          cache-dependency-path: |
+            green-and-tasty/frontend/restaurant-frontend-app/package-lock.json
+            e2e/package-lock.json
+
+      - name: Install Frontend Dependencies
+        working-directory: green-and-tasty/frontend/restaurant-frontend-app
+        run: npm ci
+
+      - name: Build Frontend Bundle
+        working-directory: green-and-tasty/frontend/restaurant-frontend-app
+        run: |
+          npx ng build --configuration production
+
+      - name: Install E2E Dependencies
+        working-directory: e2e
+        run: npm ci
+
+      - name: Install Playwright Browsers & OS Dependencies
+        working-directory: e2e
+        run: npx playwright install --with-deps chromium
+
+      - name: Start Frontend Server in Background
+        working-directory: green-and-tasty/frontend/restaurant-frontend-app
+        run: |
+          npx ng serve --host 0.0.0.0 --port 4200 &
+          npx wait-on http://localhost:4200 --timeout 60000
+
+      - name: Run Playwright E2E Tests (Parallel Execution)
+        working-directory: e2e
+        run: npm run test
+        env:
+          CI: true
+          E2E_BASE_URL: http://localhost:4200
+          RP_API_KEY: ${{ secrets.RP_API_KEY }}
+
+      - name: Upload Playwright Test Report (Traces & Screenshots)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-test-report
+          path: e2e/playwright-report/
+          retention-days: 30
+
+      - name: Upload Allure Results Artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results
+          path: e2e/allure-results/
+          retention-days: 30

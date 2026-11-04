@@ -11,7 +11,14 @@ Thumbs.db
 
 # Node
 node_modules/
+**/node_modules/
 dist/
+**/dist/
+.angular/
+**/.angular/
+
+# Archives
+*.zip
 
 # Local env
 .env
@@ -40,3 +47,8 @@ syndicate_venv/
 
 # Syndicate source clone
 aws-syndicate/
+
+# Figma exports in root
+/Owner Flow.png
+/Logo.png
+

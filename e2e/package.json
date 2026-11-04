@@ -1,0 +1,34 @@
+{
+  "name": "restaurant-e2e-tests",
+  "version": "1.0.0",
+  "description": "End-to-End Automation Test Suite for Restaurant App (Homework #8: Level 1, 2, 3 & Bonus)",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:level1": "playwright test tests/level-1-owner-review.spec.ts",
+    "test:level2": "playwright test tests/level-2-submit-pre-order.spec.ts",
+    "test:level3": "playwright test tests/level-3-remove-guest.spec.ts",
+    "test:bonus": "playwright test tests/bonus-reporting-sdlc.spec.ts",
+    "report": "playwright show-report playwright-report",
+    "report:allure": "allure generate allure-results --clean -o allure-report && allure open allure-report"
+  },
+  "keywords": [
+    "playwright",
+    "e2e",
+    "testing",
+    "aqa",
+    "automation",
+    "group-preorder"
+  ],
+  "author": "AQA Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@types/node": "^22.10.1",
+    "allure-playwright": "^3.0.7",
+    "typescript": "^5.7.2"
+  }
+}

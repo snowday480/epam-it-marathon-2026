@@ -1,0 +1,142 @@
+ID: 1,Title: Verify that full restaurant menu is displayed structured by categories when Guest joins session,Status: Passed
+,"Pre-conditions:
+1. Guest has successfully joined the group session via shared invite link (US_G10).
+2. Parent reservation status is ""Reserved"".
+3. Restaurant menu contains dishes in categories: Appetizers, Main Courses, Desserts.",,
+,"Steps:
+1. Open the shared invite link.
+2. Observe the Menu page layout, hero section, and category navigation bar.","Expected result:
+1. Guest is on the Menu page.
+2. Header and hero banner ""Green and Tasty Restaurants / Menu"" are displayed.
+3. Category bar contains all available categories (Appetizers, Main Courses, Desserts).
+4. Dishes are logically grouped and displayed according to the active category.",
+,,,
+ID: 2,Title: Verify authentic brand logo display in Header against Logo.png and Figma specifications,Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Official brand logo asset (Logo.png) is approved in the design system.",,
+,"Steps:
+1. Inspect the brand logo in the top-left corner of the header.
+2. Check sprout placement, wordmark typography, and subtitle.","Expected result:
+1. Logo matches Logo.png: stem of the sprout forms the vertical trunk of letter ""T"" in ""GreenTasty"".
+2. Sprout leaves rise naturally between letters ""n"" and ""T"".
+3. Subtitle ""HEALTHY EATERS RESTAURANT"" is rendered clearly below.",
+,,,
+ID: 3,"Title: Verify menu item card details display (Name, Price, Serving Size, Authentic Image, Availability status)",Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Available and unavailable dishes exist in the restaurant menu catalog.",,
+,"Steps:
+1. Examine available dish cards (e.g. Margherita Pizza).
+2. Examine unavailable dish cards (e.g. Fresh Avocado Toast, Truffle Mushroom Risotto).
+3. Compare photos with dish titles.","Expected result:
+1. Each card displays:
+- Dish title
+- Price formatted with currency ($XX.XX)
+- Serving size with weight in grams (e.g. ""430 g"")
+- Authentic image corresponding to the dish (pizza for pizza, risotto for risotto)
+- Clear availability indicator.
+2. Unavailable dishes show ""Sold Out"" / ""On Stop"" badge.",
+,,,
+ID: 4,Title: Verify adding an available dish directly to personal subcart and updating cart counter badge,Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dish is in ""Available"" state.
+3. Personal subcart is currently empty (0 items).",,
+,"Steps:
+1. Locate an available dish (e.g. Margherita Pizza).
+2. Click the [Pre-order] button on the card.
+3. Check the cart button and counter badge.","Expected result:
+1. Dish is successfully added to the Guest's personal subcart without a full page refresh.
+2. Action button provides visual feedback (e.g. state change or quantity control).
+3. Cart icon displays a visible counter badge incremented to ""1"".",
+,,,
+ID: 5,"Title: Verify that items marked ""Sold Out"" / ""On Stop"" cannot be selected or added to cart",Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. One or more dishes are marked as unavailable (""Sold Out"" / ""On Stop"") in the catalog.",,
+,"Steps:
+1. Locate the unavailable dish card.
+2. Check the card visual appearance (opacity/dimmed state).
+3. Attempt to click on the card and the [Pre-Order] button.","Expected result:
+1. Dish card has a visible ""Sold Out"" / ""On Stop"" badge.
+2. Card has disabled/dimmed visual styling.
+3. [Pre-Order] button is disabled (greyed out, unclickable) or hidden as in Figma.
+4. Item cannot be added to the cart.",
+,,,
+ID: 6,"Title: Verify opening and displaying dish details modal (""Menu item full view"" from Figma)",Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page with available dishes.",,
+,"Steps:
+1. Click on an available dish card (e.g. Fresh Strawberry Mint Salad).
+2. Observe the opened modal dialog.","Expected result:
+1. ""Menu item full view"" modal opens over a dimmed backdrop.
+2. Modal displays: large dish image, dish title, ingredients description, nutritional values (Calories, Protein, Fats, Carbs, Vitamins), serving size/price, and a prominent [Pre-order] button.
+3. Modal has a working close button [X].",
+,,,
+ID: 7,"Title: Verify filtering dishes by selecting category tabs (Appetizers, Main Courses, Desserts)",Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page with multiple categories configured.",,
+,"Steps:
+1. Click on the ""Appetizers"" tab.
+2. Observe filtered dishes.
+3. Click on the ""Main Courses"" tab.
+4. Click on the ""Desserts"" tab.","Expected result:
+1. Only dishes belonging to ""Appetizers"" are displayed, active green underline on tab.
+2. Only dishes belonging to ""Main Courses"" are displayed.
+3. ""Desserts"" tab is present and displays dessert items when clicked.",
+,,,
+ID: 8,"Title: Verify dish sorting functionality via ""Sort by"" dropdown",Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page with several dishes having different popularity and prices.",,
+,"Steps:
+1. Locate the ""Sort by:"" dropdown on the right side above the dishes grid.
+2. Click the dropdown and check available options.
+3. Select ""Popular First"".
+4. Select ""Price: Low to High"".","Expected result:
+1. ""Sort by:"" dropdown is displayed with options: Popular First, Price: Low to high, Price: High to low.
+2. Dishes are sorted accurately according to the selected option without full page reload.",
+,,,
+ID: 9,"Title: Verify viewing personal pre-order cart drawer, item removal, and quantity adjustment",Status: Passed
+,"Pre-conditions:
+1. Guest has added 2 dishes to their personal subcart.
+2. Guest is on the Menu page.",,
+,"Steps:
+1. Click on the cart button.
+2. Observe the Cart drawer opened from the right.
+3. Test quantity increment/decrement [-] [+] and trash icon [delete].
+4. Observe Grand Total recalculation.","Expected result:
+1. Cart drawer slides open titled ""Cart"" with subtitle ""My Pre-Order"".
+2. Added items are listed with dish photo, title, prep time, quantity controls, and price.
+3. Increasing/decreasing quantity updates item price and Grand Total immediately.
+4. Clicking trash icon removes the dish from the subcart.
+5. [Submit Pre-Order] button is enabled.",
+,,,
+ID: 10,Title: Verify menu data freshness on manual page refresh,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. A dish status is changed from Available to On Stop/Sold Out on the backend.",,
+,"Steps:
+1. Refresh the browser page (F5 / reload).
+2. Locate the modified dish.","Expected result:
+1. Menu reloads and reflects updated data from the server.
+2. The modified dish is immediately displayed with unavailable badge and disabled order action.",
+,,,
+ID: 11,Title: Verify header elements and session isolation for Guest on pre-order menu page,Status: Failed
+,"Pre-conditions:
+1. Unauthenticated Guest opened the pre-order link (/join/:token).",,
+,"Steps:
+1. Inspect the top header bar navigation links and icons.
+2. Check whether Customer actions (""Book a Table"", ""Reservations"", user avatar) are accessible.","Expected result:
+1. Header is tailored for Guest pre-order view.
+2. Customer-specific actions are hidden or Guest session state is strictly preserved without leaking private customer profile data.",
+,,,
+ID: 12,Title: Verify session behavior and cut-off handling when reservation is Cancelled or past cut-off time (Hard Lock),Status: Passed
+,"Pre-conditions:
+1. Guest opens invite link when reservation is in Cancelled state OR time to reservation is less than T-45 / T-30 minutes.",,
+,"Steps:
+1. Open the invite link.
+2. Observe screen content and interactive controls.","Expected result:
+1. For Cancelled reservation: informatory screen displays session is cancelled/inactive.
+2. For past cut-off time (Hard Lock): Menu transitions to view-only mode with notification banner, and pre-order submission is disabled.",
+,,,
