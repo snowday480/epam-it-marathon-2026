@@ -1,0 +1,117 @@
+ID: 1,Summary: Dish images do not match dish names on Menu page (Pizza, Risotto, and Toast display salad photos),,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: High
+
+Severity: Major"
+,"Pre-conditions:
+1. Guest is on the Menu page: https://d28jftogiwtein.cloudfront.net/join/...
+2. Menu contains dishes: Fresh Avocado Toast, Truffle Mushroom Risotto, Margherita Pizza.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Observe the dish cards for 'Fresh Avocado Toast', 'Truffle Mushroom Risotto', and 'Margherita Pizza'.
+3. Compare the image displayed on each card with the dish title.
+
+Actual result:
+- 'Margherita Pizza' displays a photo of a green vegetable salad.
+- 'Truffle Mushroom Risotto' displays a photo of a strawberry salad.
+- 'Fresh Avocado Toast' displays a photo of a salad bowl.
+Dish images are completely mismatched with their names.
+
+Expected result:
+Each dish card must display the authentic image corresponding to its recipe and title (e.g., Margherita Pizza displays pizza image, Risotto displays risotto image).",,
+Attachments: screenshot.png - Dish cards grid,,
+,,,
+ID: 2,Summary: Unavailable dish status badge displays 'Out Of Stock' instead of 'On Stop' as specified in AC 4,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Medium"
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dishes 'Fresh Avocado Toast' and 'Truffle Mushroom Risotto' are marked as unavailable.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Inspect the availability badge on unavailable dish cards.
+
+Actual result:
+The badge displays the text 'Out Of Stock'.
+
+Expected result:
+According to AC 4 ('Items currently marked On Stop are clearly indicated as unavailable'), the badge should display 'On Stop' (or the requirement must be updated to align terminology).",,
+Attachments: screenshot.png - Badge on cards 1 and 2,,
+,,,
+ID: 3,Summary: Desserts category tab is missing from category navigation bar,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Major"
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Restaurant menu includes dishes in Appetizers, Main Courses, and Desserts.",,
+,"Steps:
+1. Open the Menu page as a Guest.
+2. Inspect the category navigation bar above the dish cards.
+
+Actual result:
+Only 'All dishes', 'Appetizers', and 'Main Courses' tabs are displayed. 'Desserts' category is missing.
+
+Expected result:
+Category bar displays all available categories according to AC 1: 'All dishes', 'Appetizers', 'Main Courses', and 'Desserts'.",,
+Attachments: screenshot.png - Category bar,,
+,,,
+ID: 4,Summary: Inconsistent spacing in dish serving weight format ('200g' vs '450 g'),,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Low
+
+Severity: Minor"
+,"Pre-conditions:
+1. Guest is on the Menu page.",,
+,"Steps:
+1. Examine serving size text on 'Fresh Avocado Toast' and 'Truffle Mushroom Risotto'.
+2. Examine serving size text on 'Margherita Pizza'.
+
+Actual result:
+Inconsistent formatting:
+- 'Fresh Avocado Toast' shows '200g' (no space).
+- 'Truffle Mushroom Risotto' shows '350g' (no space).
+- 'Margherita Pizza' shows '450 g' (with space between number and unit).
+
+Expected result:
+Serving size formatting must be uniform across all dish cards (e.g. '450 g', '200 g', '350 g').",,
+Attachments: screenshot.png - Weight labels,,
+,,,
+ID: 5,Summary: Unauthorized Guest view displays customer account navigation items ('Book a Table', 'Reservations', profile avatar) in header,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Medium
+
+Severity: Major"
+,"Pre-conditions:
+1. User opens the guest pre-order join link without being logged into a Customer account.",,
+,"Steps:
+1. Open the guest invite link in an incognito browser window.
+2. Observe the top header navigation bar.
+
+Actual result:
+Header contains links: 'Book a Table', 'Reservations', and an active profile avatar icon, which belong to an authorized Customer flow.
+
+Expected result:
+For a Guest participating in a pre-order session, the header should display guest-relevant navigation or simplify to restaurant branding without exposing unrelated customer account actions.",,
+Attachments: screenshot.png - Top header bar,,
+,,,
+ID: 6,Summary: Cart icon in reservation bar lacks selected items counter badge,,"Env: P_PRD (Web / Chrome 156 / Desktop)
+
+Priority: Low
+
+Severity: Minor"
+,"Pre-conditions:
+1. Guest is on the Menu page.",,
+,"Steps:
+1. Observe the green reservation bar at the top of the page.
+2. Check the cart icon on the right side.
+
+Actual result:
+The cart icon is a static image with no counter badge (indicator of 0 or N items).
+
+Expected result:
+The cart button displays an item count badge (e.g. badge showing current number of items added by the guest to their personal subcart).",,
+Attachments: screenshot.png - Green reservation strip with cart icon,,

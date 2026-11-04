@@ -1,0 +1,114 @@
+ID: 1,Title: Verify that full restaurant menu is displayed structured by categories when Guest joins session,,Status: Passed
+,"Pre-conditions:
+1. Guest has successfully joined the group session via shared link (US_G10).
+2. Parent reservation status is ""Reserved"".
+3. Restaurant menu contains dishes in categories: Appetizers, Main Courses, Desserts.",,
+,"Steps:
+1. Open the shared invite link and complete join step.
+2. Observe the Menu page layout and category navigation bar.","Expected result:
+1. Guest is on the Menu page.
+2. Category bar contains ""All dishes"" and specific categories (Appetizers, Main Courses, Desserts).
+3. ""All dishes"" is selected by default.
+4. Dishes are logically grouped/displayed according to the selected category.",
+,,,
+ID: 2,Title: Verify menu item card details display (Name, Price, Serving Size, Image, Availability status),,Status: Failed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Available and unavailable dishes exist in the system.",,
+,"Steps:
+1. Examine available dish cards.
+2. Examine unavailable dish cards.","Expected result:
+1. Each card displays:
+- Dish name
+- Price formatted with currency ($XX.XX)
+- Serving size with weight in grams
+- Correct image corresponding to the dish name
+- Clear availability indicator.
+2. Unavailable dish clearly shows ""On Stop"" / ""Out Of Stock"" status.",
+,,,
+ID: 3,Title: Verify adding an available dish directly to personal subcart,,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dish is in ""Available"" state.
+3. Personal subcart is empty.",,
+,"Steps:
+1. Locate an available dish (e.g. Margherita Pizza).
+2. Click the [Pre-order] button on the card.
+3. Check the cart icon in the top green reservation bar.","Expected result:
+1. Dish is successfully added to the Guest's personal subcart.
+2. Action button provides visual feedback (e.g. changes to counter or shows added state).
+3. Cart badge counter increments by 1.",
+,,,
+ID: 4,Title: Verify that items marked "On Stop" / "Out Of Stock" cannot be selected or added to cart,,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. Dish is marked as ""On Stop"" / ""Out Of Stock"" in the system.",,
+,"Steps:
+1. Locate the unavailable dish card.
+2. Check the card visual state.
+3. Attempt to click on the card and the [Pre-Order] button.","Expected result:
+1. Dish card has a visible ""On Stop"" / ""Out Of Stock"" badge.
+2. Card has disabled/dimmed visual styling.
+3. [Pre-Order] button is disabled (greyed out, unclickable).
+4. Item cannot be added to the cart.",
+,,,
+ID: 5,Title: Verify filtering dishes by selecting a specific category tab,,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page with multiple categories available.",,
+,"Steps:
+1. Click on the ""Appetizers"" category tab.
+2. Observe the displayed dishes.
+3. Click on the ""Main Courses"" category tab.","Expected result:
+1. Only dishes belonging to ""Appetizers"" are shown. Active tab is visually highlighted.
+2. Only dishes belonging to ""Main Courses"" are shown. Tab highlight switches to ""Main Courses"".",
+,,,
+ID: 6,Title: Verify menu sorting functionality by Recommended, Price Low to High, Price High to Low,,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page with several dishes having different prices.",,
+,"Steps:
+1. Click on ""Sort by:"" dropdown.
+2. Select ""Price: Low to high"".
+3. Observe dish order.
+4. Select ""Price: High to low"".","Expected result:
+1. Dropdown options are: Recommended, Price: Low to high, Price: High to low.
+2. Dishes are sorted in ascending order of price.
+3. Dishes are sorted in descending order of price.",
+,,,
+ID: 7,Title: Verify menu data freshness on manual page refresh,,Status: Passed
+,"Pre-conditions:
+1. Guest is on the Menu page.
+2. An item's status is changed from Available to On Stop on the backend.",,
+,"Steps:
+1. Refresh the browser page (F5 / reload).
+2. Locate the modified dish.","Expected result:
+1. Menu reloads and reflects the updated data from the backend.
+2. Modified dish is now shown with the unavailable badge and disabled button.",
+,,,
+ID: 8,Title: Verify Guest redirection when parent reservation is Cancelled or Expired,,Status: Failed
+,"Pre-conditions:
+1. Owner shared an invite link.
+2. Parent reservation status is ""Cancelled"" or session is expired.",,
+,"Steps:
+1. Guest navigates to the shared invite link.","Expected result:
+1. Guest is NOT allowed to view the active menu.
+2. Static/warning page is opened with message: ""This pre-order session has expired or is no longer active."".",
+,,,
+ID: 9,Title: Verify header elements for Guest on pre-order menu page,,Status: Failed
+,"Pre-conditions:
+1. Unregistered Guest joined via invite link.",,
+,"Steps:
+1. Inspect the top global navigation bar.","Expected result:
+1. Header is tailored for Guest pre-order view.
+2. Customer-specific actions (""Book a Table"", ""Reservations"", user profile avatar) are not shown or do not break Guest session.",
+,,,
+ID: 10,Title: Verify error handling and retry mechanism when menu API fails to load,,Status: Passed
+,"Pre-conditions:
+1. Guest joined session.
+2. Backend menu endpoint returns 500 Internal Server Error or network connection is lost.",,
+,"Steps:
+1. Open the menu page during server error.
+2. Observe the screen.
+3. Restore connection and click [Try again].","Expected result:
+1. Error placeholder message is displayed (e.g., ""Failed to load menu"").
+2. [Try again] button is present.
+3. Clicking [Try again] successfully fetches and displays the menu.",
