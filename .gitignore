@@ -47,3 +47,8 @@ syndicate_venv/
 
 # Syndicate source clone
 aws-syndicate/
+
+# Figma exports in root
+/Owner Flow.png
+/Logo.png
+
